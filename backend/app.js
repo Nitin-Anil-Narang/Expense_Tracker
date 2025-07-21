@@ -14,9 +14,10 @@ const test = require("./routes/inital_test")
 const app = express();
 const port = process.env.PORT;
 
+const frontend_url = process.env.FRONTEND_URL;
 //
 app.use(cors({
-  origin: ["http://localhost:5173"],
+  origin: [frontend_url],
   credentials: true
 }));
 app.use(express.json());
