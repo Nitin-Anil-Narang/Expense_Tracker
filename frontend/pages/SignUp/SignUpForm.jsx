@@ -15,8 +15,8 @@ import {
   Agreement,
   LoginText,
   ErrorText
-} from '../../styles/Signup/Signup';
-// Styled Components
+} from '../../styles/Signup';
+
 
 
 export default function SignUpForm() {
@@ -42,7 +42,7 @@ export default function SignUpForm() {
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    setError(""); // Clear error on input change
+    setError(""); 
   };
 
   const handleSubmit = async (e) => {
@@ -64,13 +64,12 @@ export default function SignUpForm() {
       return;
     }
 
-    console.log("Submitted:", formData);
+    
 
 
     try {
 
       const Signup_request = await axiosApi.post('/sign-up', formData)
-      console.log("Signup Success:", Signup_request.data);
       navigate("/");
     } catch (err) {
       console.error("Signup Error:", err);

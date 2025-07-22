@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const signup = async (req, res) => {
   try {
     const { name,email,confirmPassword } = req.body; 
-    console.log(req.body);
+    
 
     const userExists = await signupModel.getEmail(
       email
@@ -16,7 +16,7 @@ const signup = async (req, res) => {
         .status(400)
         .json({ success: false, message: "Email already exists" });
     }
-    console.log(req.body);
+    
     
 
     const hashedPassword = await bcrypt.hash(confirmPassword, 10);

@@ -15,7 +15,7 @@ import {
   Agreement,
   LoginText,
   ErrorText,
-} from "../../styles/Signup/Signup"; // same styled components
+} from "../../styles/Signup"; 
 
 export default function LoginForm() {
   const { login, user, loading } = useUser();
@@ -25,11 +25,6 @@ export default function LoginForm() {
     password: "",
   });
 
-  useEffect(() => {
-  if (user) {
-    console.log("Logged-in user role:", user.role);
-  }
-}, [user]);
 
 
   const [showPassword, setShowPassword] = useState(false);
@@ -61,16 +56,14 @@ export default function LoginForm() {
       return;
     }
 
-    console.log("Login submitted:", formData);
-    // Add login API call here
+   
+    
     try {
       
       const Login_request = await axiosApi.post('/login',formData)
-      console.log("Login Success:", Login_request.data);
+      
       login(Login_request.data.token)
-      console.log("Token decoded, waiting for user context...");
       navigate('/home')
-      console.log(user.role);
       
     } catch (err) {
       console.error("Signup Error:", err);

@@ -1,17 +1,9 @@
 import React from 'react'
 import { useUser } from '../../Context/UserAuth'
 import Sidebar from '../../components/Sidebar';
-import styled from 'styled-components';
+import {Container,Content} from '../../styles/Home'
 
-const Container = styled.div`
-  display: flex;
-`;
 
-const Content = styled.main`
-  flex: 1;
-  padding: 2rem;
-  background-color: #f4f4f4; 
-`;
 
 const Home = () => {
   const { user, loading } = useUser();
@@ -37,8 +29,8 @@ const Home = () => {
       <Sidebar />
 
       <Content>
-        <h1>Pocketrocket Labs</h1>
-        <p>Welcome to the home page!</p>
+        
+        <h1>Welcome to the home page!</h1>
       </Content>
       
     </Container>

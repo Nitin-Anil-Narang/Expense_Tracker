@@ -4,10 +4,14 @@ require("dotenv").config();
 
 // Import for Admin Api
 const assignRole = require('./routes/RoleAssign')
-// Import for Employee Api
-// Common Imports
+const updateStatus = require('./routes/statusUpdate')
+const csvExport = require("./routes/csv")
+
+// Common Imports and Api for Employee
 const signup = require('./routes/signUp')
 const login = require('./routes/login')
+const logs = require('./routes/log')
+const createExp = require('./routes/expenseCreation')
 
 const test = require("./routes/inital_test")
 
@@ -16,24 +20,23 @@ const port = process.env.PORT;
 
 //
 app.use(cors({
-  origin: ["http://localhost:5173"],
+  origin: process.env.FRONTEND_URL || ["http://localhost:5173"],
   credentials: true
 }));
 app.use(express.json());
 
-// Below api was used to initally test the DB connect and fetch data (Ignore)
-// app.use('/',test); 
+
 
 // Api for Admin
 app.use('/',assignRole);
+app.use('/',updateStatus);
+app.use('/',logs);
+app.use('/',csvExport)
 
-// Api for Employee
-
-
-// Common Api
+// Common Api and Api for Employee
 app.use('/',signup);
 app.use('/',login);
-
+app.use('/',createExp);
 
 //Start server
 app.listen(port, () => {
