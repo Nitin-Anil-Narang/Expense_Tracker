@@ -1,0 +1,9 @@
+## Tasks 
+    ✔ Authentication & RBAC @done(25-07-22 11:55)
+    ✔ Expense Tracking @done(25-07-22 15:13)
+    ✔ Charts (Insights) (Admin-only) @done(25-07-22 16:34)
+    ✔ Audit Logs @done(25-07-22 15:13)
+## Bonus 
+    ✔ CSV export @done(25-07-22 16:34)
+    ✔ Basic unit tests @done(25-07-22 17:19)
+    ☐ Deployed version
