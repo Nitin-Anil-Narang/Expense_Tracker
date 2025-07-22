@@ -6,7 +6,7 @@ require("dotenv").config();
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        // console.log(req.body);
+        
         
 
         const user = await loginModel.findUserByEmail(email);
@@ -18,7 +18,7 @@ const login = async (req, res) => {
                 .status(400)
                 .json({ success: false, message: "User not found" });
         }
-        console.log(user);
+        
         
 
         const dbUser = user[0];
@@ -34,7 +34,9 @@ const login = async (req, res) => {
         const token = jwt.sign(
             {
                 email: email,
-                role: dbUser.role
+                role: dbUser.role,
+                id:dbUser.id,
+                names:dbUser.name
 
             },
             process.env.SECRET_KEY,

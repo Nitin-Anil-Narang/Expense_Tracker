@@ -7,7 +7,7 @@ const updateRoleByEmail = async (email, newRole) => {
 
 const getFullPersonal = async () => {
   const rows = await db.query("SELECT * FROM users");
-  console.log(rows);
+  
   return rows.rows;
 };
 
